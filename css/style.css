@@ -1,0 +1,357 @@
+/* =========================================
+   1. GLOBAL RESET & DEFAULTS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* The most important line in CSS! */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    min-width: 1200px; /* Prevents layout breaking on tiny screens */
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   2. TOP HEADER (Logo, Search, Account)
+   ========================================= */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Search Bar Area */
+.top-header form {
+    flex-grow: 1;           /* Take up all available space */
+    margin: 0 40px;         /* Space around the search bar */
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.top-header input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.top-header button {
+    background-color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+/* Account Links (Right Side) */
+.top-header ul {
+    display: flex;
+    gap: 30px;
+}
+
+.top-header a {
+    display: flex;
+    flex-direction: column; /* Icon on top, Text on bottom */
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.top-header i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   3. UTILITY NAV (Row 2: Category & Store)
+   ========================================= */
+.utility-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.utility-left, .utility-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Style the buttons to look like links */
+.utility-left button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* =========================================
+   4. MAIN MENU (Row 3: Departments)
+   ========================================= */
+.department-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    height: 45px;
+    border-bottom: 2px solid #ddd;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.main-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.highlight-red {
+    color: #cc0000;
+}
+
+.coupon-btn {
+    font-size: 12px;
+    color: #555;
+}
+
+/* =========================================
+   5. HERO COUPON STRIP (Row 4)
+   ========================================= */
+.hero-coupons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 20px 30px; */
+    background-color: #f9f8f6;
+    
+    /* THE MAGIC FIX: */
+    /* 1. Don't limit the width (let it span the screen) */
+    width: 100%;
+    
+    /* 2. Calculate padding to force content into the center 1200px */
+    /* (Screen Width - 1200px) / 2 = The empty space needed on sides */
+    padding: 20px calc((100% - 1200px) / 2);
+    
+    /* Optional: Add rounded corners so it looks like a nice contained bar */
+    border-radius: 4px;
+}
+
+
+/* The "Hi Friend" Text */
+.greeting-text {
+    display: flex;
+    align-items: baseline; /* Aligns text by the "feet" of the letters */
+    gap: 8px;
+}
+
+.greeting-text h3 {
+    font-size: 18px;
+}
+
+/* Coupon Box Container */
+.coupon-group {
+    display: flex;
+    gap: 15px;
+}
+
+/* Individual Card Styling */
+.coupon-card {
+    border: 2px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    font-size: 12px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+}
+
+.coupon-card h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Card Colors */
+.card-red { border-color: #cc0000; color: #cc0000; }
+.card-green { border-color: #007f00; color: #007f00; }
+.card-grey { border-color: #333; color: #333; }
+
+/* =========================================
+   6. ADS & TIMER (Shark & Red Bar)
+   ========================================= */
+/* .ads-container {
+    text-align: center;
+    margin-bottom: 20px;
+} */
+
+/* --- ADS CONTAINER (Shark + Timer) --- */
+.ads-container {
+    text-align: center;
+    margin-bottom: 20px;
+    
+    /* NEW: Constrain the width and center it */
+    max-width: 1200px;  
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ad-banner img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* The Red Bar */
+.ad-timer-bar {
+    background-color: #e31837;
+    padding: 10px 0;
+    color: white;
+}
+
+/* The Link acts as the Flex Container now! */
+.ad-timer-bar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    color: white;
+}
+
+.ad-timer-bar h3 {
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+/* The Countdown Clock */
+.timer-clock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ---Orginal Large Numbers---
+.time-unit strong {
+    font-size: 32px;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+}
+*/
+
+/* --- THE TIMER NUMBERS (Scaled Down) --- */
+.time-unit strong {
+    font-size: 32px;       /* Changed from 50px to match the Header! */
+    font-weight: 800;
+    line-height: 1;
+    display: block;
+}
+
+.time-unit {
+    text-align: center;
+    font-size: 10px;
+}
+
+/* .colon {
+    font-size: 50px;
+    font-weight: 800;
+    margin-top: -12px;
+} */
+
+.colon {
+    font-size: 32px;       /* Changed from 50px to match */
+    font-weight: 800;
+    margin-top: -5px;      /* Adjusted alignment for smaller size */
+}
+
+/* Optional: Add a little more breathing room between Text and Timer */
+.ad-timer-bar a {
+    gap: 15px;             /* Tweak this if they feel too crowded */
+}
+
+
+/* =========================================
+   7. THE DEALS GRID (Final Layout)
+   ========================================= */
+.deals-grid {
+    display: flex;
+    gap: 20px;
+    padding: 0 30px 50px; /* Top 0, Side 30, Bottom 50 */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Column 1: Wide (50%) */
+.deal-col-wide {
+    flex: 2;
+    background-color: #f6f6f6; /* Very light grey */
+    display: flex;
+    flex-direction: column;
+    /* We haven't styled the inside of this yet! */
+}
+
+/* Columns 2 & 3: Narrow (25% each) */
+.deal-col-narrow {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Placeholder style for the cards inside narrow columns */
+.deal-card {
+    border: 1px solid #eee;
+    padding: 10px;
+    background: white;
+}
+
+/* --- THE DEALS GRID (Final Structure) --- */
+.deals-grid {
+    display: flex;          /* Snap into columns */
+    gap: 20px;              /* Space between columns */
+    padding: 30px;          /* Breathing room */
+    max-width: 1200px;      /* Keep it neat */
+    margin: 0 auto;         /* Center on page */
+    align-items: flex-start; /* Top align the columns */
+}
+
+/* This is the NEW important part for the images! */
+.deals-grid img {
+    width: 100%;            /* Make images fill their column width */
+    display: block;
+    border-radius: 4px;     /* Optional: nice rounded corners */
+}
+
+/* Column 1: Wide */
+.deal-col-wide {
+    flex: 2;                /* 50% width */
+}
+
+/* Columns 2 & 3: Narrow */
+.deal-col-narrow {
+    flex: 1;                /* 25% width each */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;              /* Space between stacked images */
+}
